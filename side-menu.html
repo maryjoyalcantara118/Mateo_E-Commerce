@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Joy Glow's Cosmetics - Side Menu</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="side-menu.css">
+</head>
+<body>
+
+    <aside id="sidebar" class="sidebar">
+        <div class="sidebar-header">
+            <h2>Joy Glow's Cosmetics</h2>
+        </div>
+
+        <nav class="menu-container">
+            <div class="menu-group">
+                <span class="group-title">Main Navigation</span>
+                <ul>
+                    <li>
+                        <a href="#" class="menu-item active" onclick="setActive(this)">
+                            <i class="fa-solid fa-house"></i>
+                            <span>Home</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="menu-item" onclick="setActive(this)">
+                            <i class="fa-solid fa-box-open"></i>
+                            <span>Products</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="menu-item" onclick="setActive(this)">
+                            <i class="fa-solid fa-layer-group"></i>
+                            <span>Categories</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="menu-group">
+                <span class="group-title">Shopping</span>
+                <ul>
+                    <li>
+                        <a href="#" class="menu-item" onclick="setActive(this)">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                            <span>Cart</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="menu-item" onclick="setActive(this)">
+                            <i class="fa-solid fa-receipt"></i>
+                            <span>My Orders</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="menu-item" onclick="setActive(this)">
+                            <i class="fa-solid fa-heart"></i>
+                            <span>Wishlist</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="menu-group">
+                <span class="group-title">Account</span>
+                <ul>
+                    <li>
+                        <a href="#" class="menu-item" onclick="setActive(this)">
+                            <i class="fa-solid fa-user"></i>
+                            <span>Profile</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="menu-item" onclick="setActive(this)">
+                            <i class="fa-solid fa-gear"></i>
+                            <span>Settings</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="menu-group">
+                <span class="group-title">System</span>
+                <ul>
+                    <li>
+                        <a href="#" class="menu-item" onclick="handleLogout()">
+                            <i class="fa-solid fa-right-from-bracket"></i>
+                            <span>Logout</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </aside>
+
+    <button class="toggle-btn" onclick="toggleMenu()">
+        <i class="fa-solid fa-bars"></i>
+    </button>
+
+    <main class="main-content">
+        <h1>Joy Glow's Cosmetics</h1>
+        <p>Welcome to Joy Glow's Cosmetics! Use the navigation bar to browse our latest products and offers</p>
+    </main>
+
+    <script src="side-menu.js"></script>
+</body>
+</html>
