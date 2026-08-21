@@ -1,8 +1,9 @@
 <!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Joy Glow's Cosmetics - Side Menu</title>
+    <title>Joy Glow's Cosmetics</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -11,29 +12,32 @@
 </head>
 <body>
 
+    <!-- Sidebar Menu Navigation -->
     <aside id="sidebar" class="sidebar">
         <div class="sidebar-header">
-            <h2>Joy Glow's Cosmetics</h2>
+            <h2 class="brand-title">JOY GLOW'S<br>COSMETICS</h2>
+            <div class="brand-line"></div>
         </div>
 
         <nav class="menu-container">
+            <!-- Main Navigation Group -->
             <div class="menu-group">
-                <span class="group-title">Main Navigation</span>
+                <span class="group-title">MAIN NAVIGATION</span>
                 <ul>
                     <li>
-                        <a href="#" class="menu-item active" onclick="setActive(this)">
+                        <a href="#" class="menu-item active" data-target="home" onclick="setActive(this, event)">
                             <i class="fa-solid fa-house"></i>
                             <span>Home</span>
                         </a>
                     </li>
                     <li>
-                        <a href="#" class="menu-item" onclick="setActive(this)">
+                        <a href="#" class="menu-item" data-target="products" onclick="setActive(this, event)">
                             <i class="fa-solid fa-box-open"></i>
                             <span>Products</span>
                         </a>
                     </li>
                     <li>
-                        <a href="#" class="menu-item" onclick="setActive(this)">
+                        <a href="#" class="menu-item" data-target="categories" onclick="setActive(this, event)">
                             <i class="fa-solid fa-layer-group"></i>
                             <span>Categories</span>
                         </a>
@@ -41,23 +45,25 @@
                 </ul>
             </div>
 
+            <!-- Shopping Group -->
             <div class="menu-group">
-                <span class="group-title">Shopping</span>
+                <span class="group-title">SHOPPING</span>
                 <ul>
                     <li>
-                        <a href="#" class="menu-item" onclick="setActive(this)">
+                        <a href="#" class="menu-item" data-target="cart" onclick="setActive(this, event)">
                             <i class="fa-solid fa-cart-shopping"></i>
                             <span>Cart</span>
+                            <span id="cart-badge" class="badge">0</span>
                         </a>
                     </li>
                     <li>
-                        <a href="#" class="menu-item" onclick="setActive(this)">
+                        <a href="#" class="menu-item" data-target="my-orders" onclick="setActive(this, event)">
                             <i class="fa-solid fa-receipt"></i>
                             <span>My Orders</span>
                         </a>
                     </li>
                     <li>
-                        <a href="#" class="menu-item" onclick="setActive(this)">
+                        <a href="#" class="menu-item" data-target="wishlist" onclick="setActive(this, event)">
                             <i class="fa-solid fa-heart"></i>
                             <span>Wishlist</span>
                         </a>
@@ -65,17 +71,18 @@
                 </ul>
             </div>
 
+            <!-- Account Group -->
             <div class="menu-group">
-                <span class="group-title">Account</span>
+                <span class="group-title">ACCOUNT</span>
                 <ul>
                     <li>
-                        <a href="#" class="menu-item" onclick="setActive(this)">
+                        <a href="#" class="menu-item" data-target="profile" onclick="setActive(this, event)">
                             <i class="fa-solid fa-user"></i>
                             <span>Profile</span>
                         </a>
                     </li>
                     <li>
-                        <a href="#" class="menu-item" onclick="setActive(this)">
+                        <a href="#" class="menu-item" data-target="settings" onclick="setActive(this, event)">
                             <i class="fa-solid fa-gear"></i>
                             <span>Settings</span>
                         </a>
@@ -83,11 +90,12 @@
                 </ul>
             </div>
 
+            <!-- System Group -->
             <div class="menu-group">
-                <span class="group-title">System</span>
+                <span class="group-title">SYSTEM</span>
                 <ul>
                     <li>
-                        <a href="#" class="menu-item" onclick="handleLogout()">
+                        <a href="#" class="menu-item" data-target="logout" onclick="setActive(this, event)">
                             <i class="fa-solid fa-right-from-bracket"></i>
                             <span>Logout</span>
                         </a>
@@ -97,13 +105,694 @@
         </nav>
     </aside>
 
-    <button class="toggle-btn" onclick="toggleMenu()">
-        <i class="fa-solid fa-bars"></i>
-    </button>
-
+    <!-- Main Content Area -->
     <main class="main-content">
-        <h1>Joy Glow's Cosmetics</h1>
-        <p>Welcome to Joy Glow's Cosmetics! Use the navigation bar to browse our latest products and offers</p>
+        <!-- Top Header Banner -->
+        <header class="top-header">
+            <button class="toggle-btn" onclick="toggleMenu()" aria-label="Toggle Side Menu">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+            <div class="header-text">
+                <h1>Joy Glow's Cosmetics</h1>
+                <p>Welcome to Joy Glow's Cosmetics! Use the navigation bar to browse our latest products and offers</p>
+            </div>
+        </header>
+
+        <!-- Dynamic Content Sections -->
+        <div class="content-body">
+
+            <!-- 1. HOME SECTION -->
+            <section id="home" class="content-section active">
+                <div class="promo-banner">
+                    <h2>Glow Naturally Every Day</h2>
+                    <p>Discover lightweight cosmetics and skincare formulated specifically for tropical Philippine weather.</p>
+                </div>
+                <h3 class="sub-heading">Featured Highlights</h3>
+                <div class="card-grid">
+                    <div class="card">
+                        <i class="fa-solid fa-sparkles card-icon"></i>
+                        <h3>New Arrivals</h3>
+                        <p>Check out our non-sticky Lip Tints and Sunscreens starting at ₱199.00.</p>
+                    </div>
+                    <div class="card">
+                        <i class="fa-solid fa-percent card-icon"></i>
+                        <h3>Payday Sale</h3>
+                        <p>Enjoy up to 20% off on complete skincare sets and free nationwide shipping.</p>
+                    </div>
+                    <div class="card">
+                        <i class="fa-solid fa-crown card-icon"></i>
+                        <h3>Best Seller</h3>
+                        <p>Our Liquid Foundation (₱399.00) is back in stock.</p>
+                    </div>
+                </div>
+            </section>
+
+          <!-- 2. PRODUCTS SECTION -->
+<section id="products" class="content-section">
+    <h2 class="section-heading">Featured Products</h2>
+    <div class="product-grid">
+
+        <!-- Liquid Foundation -->
+        <div class="product-card">
+            <div class="image-wrapper">
+                <button class="wishlist-icon-btn" onclick="toggleWishlist(this)"><i class="fa-regular fa-heart"></i></button>
+                <img src="images/Foundation.jpg" alt="Liquid Foundation">
+            </div>
+            <div class="product-info">
+                <div class="product-header">
+                    <h3 class="product-title">Liquid Foundation</h3>
+                    <span class="product-price">₱199.00</span>
+                </div>
+                <p class="product-desc">Sweatproof oil-control coverage</p>
+                <div class="rating-row">
+                    <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                    <span class="reviews-count">(342)</span>
+                </div>
+                <button class="add-to-cart-btn" onclick="addToCart('Liquid Foundation', 199.00)">Add to Cart</button>
+            </div>
+        </div>
+
+        <!-- Concealer -->
+        <div class="product-card">
+            <div class="image-wrapper">
+                <button class="wishlist-icon-btn" onclick="toggleWishlist(this)"><i class="fa-regular fa-heart"></i></button>
+                <img src="images/Concealer.jpg" alt="Concealer">
+            </div>
+            <div class="product-info">
+                <div class="product-header">
+                    <h3 class="product-title">Concealer</h3>
+                    <span class="product-price">₱549.00</span>
+                </div>
+                <p class="product-desc">Skin-perfecting daily coverage</p>
+                <div class="rating-row">
+                    <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                    <span class="reviews-count">(512)</span>
+                </div>
+                <button class="add-to-cart-btn" onclick="addToCart('Concealer', 549.00)">Add to Cart</button>
+            </div>
+        </div>
+
+        <!-- Face Powder -->
+        <div class="product-card">
+            <div class="image-wrapper">
+                <button class="wishlist-icon-btn" onclick="toggleWishlist(this)"><i class="fa-regular fa-heart"></i></button>
+                <img src="images/Face Powder.jpg" alt="Face Powder">
+            </div>
+            <div class="product-info">
+                <div class="product-header">
+                    <h3 class="product-title">Face Powder</h3>
+                    <span class="product-price">₱199.00</span>
+                </div>
+                <p class="product-desc">Smooth oil-control setting powder</p>
+                <div class="rating-row">
+                    <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                    <span class="reviews-count">(310)</span>
+                </div>
+                <button class="add-to-cart-btn" onclick="addToCart('Face Powder', 199.00)">Add to Cart</button>
+            </div>
+        </div>
+
+        <!-- Blush -->
+        <div class="product-card">
+            <div class="image-wrapper">
+                <button class="wishlist-icon-btn" onclick="toggleWishlist(this)"><i class="fa-regular fa-heart"></i></button>
+                <img src="images/Blush.jpg" alt="Blush">
+            </div>
+            <div class="product-info">
+                <div class="product-header">
+                    <h3 class="product-title">Blush</h3>
+                    <span class="product-price">₱220.00</span>
+                </div>
+                <p class="product-desc">Natural flush cheek tint</p>
+                <div class="rating-row">
+                    <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                    <span class="reviews-count">(245)</span>
+                </div>
+                <button class="add-to-cart-btn" onclick="addToCart('Blush', 220.00)">Add to Cart</button>
+            </div>
+        </div>
+
+        <!-- Eyeliner -->
+        <div class="product-card">
+            <div class="image-wrapper">
+                <button class="wishlist-icon-btn" onclick="toggleWishlist(this)"><i class="fa-regular fa-heart"></i></button>
+                <img src="images/Eyeliner.jpg" alt="Eyeliner">
+            </div>
+            <div class="product-info">
+                <div class="product-header">
+                    <h3 class="product-title">Eyeliner</h3>
+                    <span class="product-price">₱180.00</span>
+                </div>
+                <p class="product-desc">Precision waterproof liquid eyeliner</p>
+                <div class="rating-row">
+                    <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                    <span class="reviews-count">(195)</span>
+                </div>
+                <button class="add-to-cart-btn" onclick="addToCart('Eyeliner', 180.00)">Add to Cart</button>
+            </div>
+        </div>
+
+        <!-- Mascara -->
+        <div class="product-card">
+            <div class="image-wrapper">
+                <button class="wishlist-icon-btn" onclick="toggleWishlist(this)"><i class="fa-regular fa-heart"></i></button>
+                <img src="images/Mascara.jpg" alt="Mascara">
+            </div>
+            <div class="product-info">
+                <div class="product-header">
+                    <h3 class="product-title">Mascara</h3>
+                    <span class="product-price">₱299.00</span>
+                </div>
+                <p class="product-desc">Volumizing and lengthening formula</p>
+                <div class="rating-row">
+                    <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                    <span class="reviews-count">(280)</span>
+                </div>
+                <button class="add-to-cart-btn" onclick="addToCart('Mascara', 299.00)">Add to Cart</button>
+            </div>
+        </div>
+
+        <!-- Eyeshadow -->
+        <div class="product-card">
+            <div class="image-wrapper">
+                <button class="wishlist-icon-btn" onclick="toggleWishlist(this)"><i class="fa-regular fa-heart"></i></button>
+                <img src="images/Eyeshadow.jpg" alt="Eyeshadow">
+            </div>
+            <div class="product-info">
+                <div class="product-header">
+                    <h3 class="product-title">Eyeshadow</h3>
+                    <span class="product-price">₱350.00</span>
+                </div>
+                <p class="product-desc">Highly pigmented shade palette</p>
+                <div class="rating-row">
+                    <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                    <span class="reviews-count">(412)</span>
+                </div>
+                <button class="add-to-cart-btn" onclick="addToCart('Eyeshadow', 350.00)">Add to Cart</button>
+            </div>
+        </div>
+
+        <!-- Lipstick -->
+        <div class="product-card">
+            <div class="image-wrapper">
+                <button class="wishlist-icon-btn" onclick="toggleWishlist(this)"><i class="fa-regular fa-heart"></i></button>
+                <img src="images/Lipstick.jpg" alt="Lipstick">
+            </div>
+            <div class="product-info">
+                <div class="product-header">
+                    <h3 class="product-title">Lipstick</h3>
+                    <span class="product-price">₱249.00</span>
+                </div>
+                <p class="product-desc">Rich color velvet finish lipstick</p>
+                <div class="rating-row">
+                    <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                    <span class="reviews-count">(380)</span>
+                </div>
+                <button class="add-to-cart-btn" onclick="addToCart('Lipstick', 249.00)">Add to Cart</button>
+            </div>
+        </div>
+
+        <!-- Lip Tint -->
+        <div class="product-card">
+            <div class="image-wrapper">
+                <button class="wishlist-icon-btn" onclick="toggleWishlist(this)"><i class="fa-regular fa-heart"></i></button>
+                <img src="images/Lip tint.jpg" alt="Lip Tint">
+            </div>
+            <div class="product-info">
+                <div class="product-header">
+                    <h3 class="product-title">Lip Tint</h3>
+                    <span class="product-price">₱199.00</span>
+                </div>
+                <p class="product-desc">Long-lasting hydrating lip stain</p>
+                <div class="rating-row">
+                    <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                    <span class="reviews-count">(512)</span>
+                </div>
+                <button class="add-to-cart-btn" onclick="addToCart('Lip Tint', 199.00)">Add to Cart</button>
+            </div>
+        </div>
+
+        <!-- Lip Gloss -->
+        <div class="product-card">
+            <div class="image-wrapper">
+                <button class="wishlist-icon-btn" onclick="toggleWishlist(this)"><i class="fa-regular fa-heart"></i></button>
+                <img src="images/Lip Gloss.jpg" alt="Lip Gloss">
+            </div>
+            <div class="product-info">
+                <div class="product-header">
+                    <h3 class="product-title">Lip Gloss</h3>
+                    <span class="product-price">₱179.00</span>
+                </div>
+                <p class="product-desc">High-shine non-sticky lip glow</p>
+                <div class="rating-row">
+                    <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                    <span class="reviews-count">(225)</span>
+                </div>
+                <button class="add-to-cart-btn" onclick="addToCart('Lip Gloss', 179.00)">Add to Cart</button>
+            </div>
+        </div>
+
+        <!-- Facial Cleanser -->
+        <div class="product-card">
+            <div class="image-wrapper">
+                <button class="wishlist-icon-btn" onclick="toggleWishlist(this)"><i class="fa-regular fa-heart"></i></button>
+                <img src="images/Cleanser.jpg" alt="Facial Cleanser">
+            </div>
+            <div class="product-info">
+                <div class="product-header">
+                    <h3 class="product-title">Facial Cleanser</h3>
+                    <span class="product-price">₱289.00</span>
+                </div>
+                <p class="product-desc">Gentle foaming face cleanser</p>
+                <div class="rating-row">
+                    <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                    <span class="reviews-count">(450)</span>
+                </div>
+                <button class="add-to-cart-btn" onclick="addToCart('Facial Cleanser', 289.00)">Add to Cart</button>
+            </div>
+        </div>
+
+        <!-- Brightening Sunscreen -->
+        <div class="product-card">
+            <div class="image-wrapper">
+                <button class="wishlist-icon-btn" onclick="toggleWishlist(this)"><i class="fa-regular fa-heart"></i></button>
+                <img src="images/Brightening Sunscreen.jpg" alt="Brightening Sunscreen">
+            </div>
+            <div class="product-info">
+                <div class="product-header">
+                    <h3 class="product-title">Brightening Sunscreen</h3>
+                    <span class="product-price">₱349.00</span>
+                </div>
+                <p class="product-desc">SPF 50+ PA++++ UV protection</p>
+                <div class="rating-row">
+                    <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                    <span class="reviews-count">(210)</span>
+                </div>
+                <button class="add-to-cart-btn" onclick="addToCart('Brightening Sunscreen', 349.00)">Add to Cart</button>
+            </div>
+        </div>
+
+        <!-- Tone Up Sunscreen -->
+        <div class="product-card">
+            <div class="image-wrapper">
+                <button class="wishlist-icon-btn" onclick="toggleWishlist(this)"><i class="fa-regular fa-heart"></i></button>
+                <img src="images/Tone up.jpg" alt="Tone Up Sunscreen">
+            </div>
+            <div class="product-info">
+                <div class="product-header">
+                    <h3 class="product-title">Tone Up Sunscreen</h3>
+                    <span class="product-price">₱349.00</span>
+                </div>
+                <p class="product-desc">SPF 50+ PA++++ glow formula</p>
+                <div class="rating-row">
+                    <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                    <span class="reviews-count">(185)</span>
+                </div>
+                <button class="add-to-cart-btn" onclick="addToCart('Tone Up Sunscreen', 349.00)">Add to Cart</button>
+            </div>
+        </div>
+
+        <!-- Shower Gel -->
+        <div class="product-card">
+            <div class="image-wrapper">
+                <button class="wishlist-icon-btn" onclick="toggleWishlist(this)"><i class="fa-regular fa-heart"></i></button>
+                <img src="images/Shower gel.jpg" alt="Bamboo & Green Tea Shower Gel">
+            </div>
+            <div class="product-info">
+                <div class="product-header">
+                    <h3 class="product-title">Shower Gel</h3>
+                    <span class="product-price">₱210.00</span>
+                </div>
+                <p class="product-desc">Bamboo & Green Tea refreshing wash</p>
+                <div class="rating-row">
+                    <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                    <span class="reviews-count">(142)</span>
+                </div>
+                <button class="add-to-cart-btn" onclick="addToCart('Shower Gel', 210.00)">Add to Cart</button>
+            </div>
+        </div>
+
+        <!-- Body Lotion -->
+        <div class="product-card">
+            <div class="image-wrapper">
+                <button class="wishlist-icon-btn" onclick="toggleWishlist(this)"><i class="fa-regular fa-heart"></i></button>
+                <img src="images/Body Lotion.jpg" alt="Sweet Pea Body Lotion">
+            </div>
+            <div class="product-info">
+                <div class="product-header">
+                    <h3 class="product-title">Body Lotion</h3>
+                    <span class="product-price">₱260.00</span>
+                </div>
+                <p class="product-desc">Sweet Pea moisturizing lotion</p>
+                <div class="rating-row">
+                    <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                    <span class="reviews-count">(320)</span>
+                </div>
+                <button class="add-to-cart-btn" onclick="addToCart('Body Lotion', 260.00)">Add to Cart</button>
+            </div>
+        </div>
+
+        <!-- Soothing Gel -->
+        <div class="product-card">
+            <div class="image-wrapper">
+                <button class="wishlist-icon-btn" onclick="toggleWishlist(this)"><i class="fa-regular fa-heart"></i></button>
+                <img src="images/Sooting gel.jpg" alt="Aloe Soothing Gel">
+            </div>
+            <div class="product-info">
+                <div class="product-header">
+                    <h3 class="product-title">Soothing Gel</h3>
+                    <span class="product-price">₱249.00</span>
+                </div>
+                <p class="product-desc">99% Aloe Vera hydrating extract</p>
+                <div class="rating-row">
+                    <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                    <span class="reviews-count">(410)</span>
+                </div>
+                <button class="add-to-cart-btn" onclick="addToCart('Soothing Gel', 249.00)">Add to Cart</button>
+            </div>
+        </div>
+
+        <!-- Hair Serum -->
+        <div class="product-card">
+            <div class="image-wrapper">
+                <button class="wishlist-icon-btn" onclick="toggleWishlist(this)"><i class="fa-regular fa-heart"></i></button>
+                <img src="images/Hair serum.jpg" alt="Anti-Frizz Hair Serum">
+            </div>
+            <div class="product-info">
+                <div class="product-header">
+                    <h3 class="product-title">Hair Serum</h3>
+                    <span class="product-price">₱299.00</span>
+                </div>
+                <p class="product-desc">Smoothens frizz with Argan Oil</p>
+                <div class="rating-row">
+                    <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                    <span class="reviews-count">(275)</span>
+                </div>
+                <button class="add-to-cart-btn" onclick="addToCart('Hair Serum', 299.00)">Add to Cart</button>
+            </div>
+        </div>
+
+        <!-- Dry Shampoo -->
+        <div class="product-card">
+            <div class="image-wrapper">
+                <button class="wishlist-icon-btn" onclick="toggleWishlist(this)"><i class="fa-regular fa-heart"></i></button>
+                <img src="images/Shampoo.jpg" alt="Dry Shampoo">
+            </div>
+            <div class="product-info">
+                <div class="product-header">
+                    <h3 class="product-title">Dry Shampoo</h3>
+                    <span class="product-price">₱189.00</span>
+                </div>
+                <p class="product-desc">Refreshes hair without residue</p>
+                <div class="rating-row">
+                    <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                    <span class="reviews-count">(160)</span>
+                </div>
+                <button class="add-to-cart-btn" onclick="addToCart('Dry Shampoo', 189.00)">Add to Cart</button>
+            </div>
+        </div>
+
+        <!-- Hair Treatment -->
+        <div class="product-card">
+            <div class="image-wrapper">
+                <button class="wishlist-icon-btn" onclick="toggleWishlist(this)"><i class="fa-regular fa-heart"></i></button>
+                <img src="images/Hair treatment.jpg" alt="Argan Oil Hair Treatment">
+            </div>
+            <div class="product-info">
+                <div class="product-header">
+                    <h3 class="product-title">Hair Treatment</h3>
+                    <span class="product-price">₱299.00</span>
+                </div>
+                <p class="product-desc">Nourishes and adds shine</p>
+                <div class="rating-row">
+                    <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                    <span class="reviews-count">(230)</span>
+                </div>
+                <button class="add-to-cart-btn" onclick="addToCart('Hair Treatment', 299.00)">Add to Cart</button>
+            </div>
+        </div>
+
+        <!-- Daily Cologne -->
+        <div class="product-card">
+            <div class="image-wrapper">
+                <button class="wishlist-icon-btn" onclick="toggleWishlist(this)"><i class="fa-regular fa-heart"></i></button>
+                <img src="images/Daily Scent.jpg" alt="Daily Scent Cologne">
+            </div>
+            <div class="product-info">
+                <div class="product-header">
+                    <h3 class="product-title">Daily Cologne</h3>
+                    <span class="product-price">₱300.00</span>
+                </div>
+                <p class="product-desc">Refreshing Happy Hour fragrance</p>
+                <div class="rating-row">
+                    <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                    <span class="reviews-count">(305)</span>
+                </div>
+                <button class="add-to-cart-btn" onclick="addToCart('Daily Cologne', 300.00)">Add to Cart</button>
+            </div>
+        </div>
+
+        <!-- Body Mist -->
+        <div class="product-card">
+            <div class="image-wrapper">
+                <button class="wishlist-icon-btn" onclick="toggleWishlist(this)"><i class="fa-regular fa-heart"></i></button>
+                <img src="images/Body Mist.jpg" alt="Daily Spell Body Mist">
+            </div>
+            <div class="product-info">
+                <div class="product-header">
+                    <h3 class="product-title">Body Mist</h3>
+                    <span class="product-price">₱225.00</span>
+                </div>
+                <p class="product-desc">Light floral daily body spray</p>
+                <div class="rating-row">
+                    <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                    <span class="reviews-count">(290)</span>
+                </div>
+                <button class="add-to-cart-btn" onclick="addToCart('Body Mist', 225.00)">Add to Cart</button>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+           <!-- 3. CATEGORIES SECTION -->
+<section id="categories" class="content-section">
+    <h2 class="section-heading">Product Categories</h2>
+    <div class="category-grid">
+        
+        <!-- Face Makeup -->
+        <div class="category-card">
+            <div class="category-header">
+                <i class="fa-solid fa-wand-magic-sparkles category-icon"></i>
+                <h3>Face Makeup</h3>
+            </div>
+            <p class="category-desc">Foundations, concealers, setting powders, and blushes.</p>
+            <div class="divider"></div>
+            <ul class="sub-item-list">
+                <li><span class="item-name">Liquid Foundation</span> <span class="item-price">₱199–₱999</span></li>
+                <li><span class="item-name">Concealer</span> <span class="item-price">₱549.00</span></li>
+                <li><span class="item-name">Face Powder</span> <span class="item-price">₱199.00</span></li>
+                <li><span class="item-name">Blush</span> <span class="item-price">₱220.00</span></li>
+            </ul>
+        </div>
+
+        <!-- Eye Makeup -->
+        <div class="category-card">
+            <div class="category-header">
+                <i class="fa-solid fa-eye category-icon"></i>
+                <h3>Eye Makeup</h3>
+            </div>
+            <p class="category-desc">Precision eyeliners, mascaras, and shade palettes.</p>
+            <div class="divider"></div>
+            <ul class="sub-item-list">
+                <li><span class="item-name">Eyeliner</span> <span class="item-price">₱300.00</span></li>
+                <li><span class="item-name">Mascara</span> <span class="item-price">₱299.00</span></li>
+                <li><span class="item-name">Eyeshadow</span> <span class="item-price">₱350.00</span></li>
+            </ul>
+        </div>
+
+        <!-- Lip Products -->
+        <div class="category-card">
+            <div class="category-header">
+                <i class="fa-solid fa-lips category-icon"></i>
+                <h3>Lip Products</h3>
+            </div>
+            <p class="category-desc">Velvet lipsticks, hydrating stains, and high-shine glosses.</p>
+            <div class="divider"></div>
+            <ul class="sub-item-list">
+                <li><span class="item-name">Lipstick</span> <span class="item-price">₱249.00</span></li>
+                <li><span class="item-name">Lip Tint</span> <span class="item-price">₱199.00</span></li>
+                <li><span class="item-name">Lip Gloss</span> <span class="item-price">₱179.00</span></li>
+            </ul>
+        </div>
+
+        <!-- Skincare -->
+        <div class="category-card">
+            <div class="category-header">
+                <i class="fa-solid fa-pump-soap category-icon"></i>
+                <h3>Skincare</h3>
+            </div>
+            <p class="category-desc">Cleansers, sunscreens, and soothing aloe gels.</p>
+            <div class="divider"></div>
+            <ul class="sub-item-list">
+                <li><span class="item-name">Facial Cleanser</span> <span class="item-price">₱289.00</span></li>
+                <li><span class="item-name">Brightening Sunscreen</span> <span class="item-price">₱349.00</span></li>
+                <li><span class="item-name">Tone Up Sunscreen</span> <span class="item-price">₱349.00</span></li>
+            </ul>
+        </div>
+
+        <!-- Body Care -->
+        <div class="category-card">
+            <div class="category-header">
+                <i class="fa-solid fa-spa category-icon"></i>
+                <h3>Body Care</h3>
+            </div>
+            <p class="category-desc">Nourishing body lotions and refreshing shower gels.</p>
+            <div class="divider"></div>
+            <ul class="sub-item-list">
+                <li><span class="item-name">Soothing Gel</span> <span class="item-price">₱249.00</span></li>
+                <li><span class="item-name">Shower Gel</span> <span class="item-price">₱210.00</span></li>
+                <li><span class="item-name">Body Lotion</span> <span class="item-price">₱260.00</span></li>
+            </ul>
+        </div>
+
+        <!-- Hair Care -->
+        <div class="category-card">
+            <div class="category-header">
+                <i class="fa-solid fa-scissors category-icon"></i>
+                <h3>Hair Care</h3>
+            </div>
+            <p class="category-desc">Dry shampoos, nourishing serums, and hair treatments.</p>
+            <div class="divider"></div>
+            <ul class="sub-item-list">
+                <li><span class="item-name">Dry Shampoo</span> <span class="item-price">₱189.00</span></li>
+                <li><span class="item-name">Hair Serum</span> <span class="item-price">₱299.00</span></li>
+                <li><span class="item-name">Hair Treatment</span> <span class="item-price">₱299.00</span></li>
+            </ul>
+        </div>
+
+        <!-- Fragrance -->
+        <div class="category-card">
+            <div class="category-header">
+                <i class="fa-solid fa-spray-can category-icon"></i>
+                <h3>Fragrance</h3>
+            </div>
+            <p class="category-desc">Daily colognes, body mists, and long-lasting sprays.</p>
+            <div class="divider"></div>
+            <ul class="sub-item-list">
+                <li><span class="item-name">Daily Cologne</span> <span class="item-price">₱180.00</span></li>
+                <li><span class="item-name">Body Mist</span> <span class="item-price">₱225.00</span></li>
+            </ul>
+        </div>
+
+    </div>
+</section>
+
+       <!-- 4. CART SECTION -->
+<section id="cart" class="content-section">
+    <h2 class="section-heading">Your Shopping Cart</h2>
+    <div class="card">
+        <!-- Container where JavaScript dynamically injects added items -->
+        <div id="cart-items">
+            <p>Your cart is currently empty.</p>
+        </div>
+        <hr style="margin: 20px 0; border: none; border-top: 1px solid #eee;">
+        <div class="cart-summary" style="display: flex; justify-content: space-between; align-items: center;">
+            <p style="margin: 0; font-size: 1.1rem;">
+                <strong>Total Amount:</strong> <span id="cart-total">₱0.00</span>
+            </p>
+            <!-- HERE IS THE CHECKOUT BUTTON -->
+            <button class="btn-action" onclick="checkout()">Checkout</button>
+        </div>
+    </div>
+</section>
+
+<!-- 5. MY ORDERS SECTION -->
+<section id="my-orders" class="content-section">
+    <h2 class="section-heading">My Orders</h2>
+    <div class="card">
+        <table class="orders-table">
+            <thead>
+                <tr>
+                    <th>Order Name</th>
+                    <th>Payment Mode</th>
+                    <th>Status</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Empty table body for real checkout items -->
+            </tbody>
+        </table>
+    </div>
+</section>
+
+<!-- 6. WISHLIST SECTION -->
+<section id="wishlist" class="content-section">
+    <h2 class="section-heading">Saved Wishlist Items</h2>
+    <div class="card-grid">
+        <div class="card">
+            <h3>Lip Tint</h3>
+            <p>Hydrating lip stain (₱199.00)</p>
+            <button class="btn-action" onclick="addToCart('Lip Tint', 199.00)">Move to Cart</button>
+        </div>
+        <div class="card">
+            <h3>Brightening Sunscreen</h3>
+            <p>Broad spectrum protection (₱349.00)</p>
+            <button class="btn-action" onclick="addToCart('Brightening Sunscreen', 349.00)">Move to Cart</button>
+        </div>
+        <div class="card">
+            <h3>Eyeshadow</h3>
+            <p>Shade palette (₱350.00)</p>
+            <button class="btn-action" onclick="addToCart('Eyeshadow', 350.00)">Move to Cart</button>
+        </div>
+    </div>
+</section>
+
+            <!-- 7. PROFILE SECTION -->
+            <section id="profile" class="content-section">
+                <h2 class="section-heading">Account Profile</h2>
+                <div class="card profile-info">
+                    <p><strong>Name:</strong> Mary Joy</p>
+                    <p><strong>Email:</strong> mateomaryjoy@117</p>
+                    <p><strong>Course:</strong> BS Information Technology</p> <!-- Added explicit Course field -->
+                    <p><strong>Year:</strong> 2nd Year</p>
+                     <p><strong>Birthday:</strong> September 17 2007</p>
+                </div>
+            </section>
+
+            <!-- 8. SETTINGS SECTION -->
+            <section id="settings" class="content-section">
+                <h2 class="section-heading">Settings</h2>
+                <div class="card-grid">
+                    <!-- Adjusted cards to explicitly cover required setting types -->
+                    <div class="card">
+                        <h3>Account Settings</h3>
+                        <p>Manage basic personal profile details, change email, and security updates.</p>
+                    </div>
+                    <div class="card">
+                        <h3>Privacy Settings</h3>
+                        <p>Manage visibility settings, active data sharing, and security preferences.</p>
+                    </div>
+                    <div class="card">
+                        <h3>Notification Settings</h3>
+                        <p>Choose order updates, promotional alerts, and email notifications.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 9. LOGOUT SECTION -->
+            <section id="logout" class="content-section">
+                <h2 class="section-heading">Logout</h2>
+                <div class="card">
+                    <h3>Logout Session</h3>
+                    <!-- Added explicit explanation text to strictly fulfill assignment requirements -->
+                    <p>This section allows you to safely end your current session and securely log out of your e-commerce account.</p>
+                    <button class="btn-danger" onclick="confirmLogout()">Logout</button>
+                </div>
+            </section>
+
+        </div>
     </main>
 
     <script src="side-menu.js"></script>
