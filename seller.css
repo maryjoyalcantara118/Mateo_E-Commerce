@@ -1,0 +1,293 @@
+/* ==========================================================
+   SELLER PORTAL STYLING (Derived directly from side-menu.css)
+   ========================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    display: flex;
+    min-height: 100vh;
+    background-color: #EBF0F5;
+    color: #333333;
+}
+
+/* Sidebar Styling */
+.sidebar {
+    width: 260px;
+    background-color: #FFFFFF;
+    border-right: 1px solid #E2E8F0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    transition: margin-left 0.3s ease;
+    z-index: 10;
+}
+
+.sidebar.collapsed {
+    margin-left: -260px;
+}
+
+.sidebar-header {
+    padding: 30px 25px 20px 25px;
+}
+
+.brand-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: #8C1D40;
+    line-height: 1.15;
+    letter-spacing: 0.5px;
+}
+
+.brand-line {
+    width: 60px;
+    height: 3px;
+    background-color: #F29EBD;
+    margin-top: 10px;
+}
+
+.menu-container {
+    padding: 10px 0;
+    flex: 1;
+}
+
+.menu-group {
+    margin-bottom: 20px;
+}
+
+.group-title {
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: #BE5B7A;
+    padding: 0 25px;
+    display: block;
+    margin-bottom: 6px;
+}
+
+.menu-group ul {
+    list-style: none;
+}
+
+.menu-item {
+    display: flex;
+    align-items: center;
+    padding: 10px 25px;
+    color: #555555;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    gap: 14px;
+}
+
+.menu-item i {
+    font-size: 1.1rem;
+    color: #9E9E9E;
+    width: 20px;
+    text-align: center;
+    transition: color 0.2s ease;
+}
+
+/* Active Highlight Styling */
+.menu-item.active {
+    background-color: #F29EBD;
+    color: #8C1D40;
+    font-weight: 600;
+}
+
+.menu-item.active i {
+    color: #8C1D40;
+}
+
+.menu-item:hover:not(.active) {
+    background-color: #FFF0F5;
+    color: #8C1D40;
+}
+
+.badge {
+    background-color: #8C1D40;
+    color: #FFFFFF;
+    font-size: 0.7rem;
+    padding: 2px 7px;
+    border-radius: 10px;
+    margin-left: auto;
+}
+
+/* Main Content Area */
+.main-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+
+.top-header {
+    display: flex;
+    align-items: flex-start;
+    padding: 30px 40px;
+    gap: 20px;
+}
+
+.toggle-btn {
+    background-color: #F29EBD;
+    color: #FFFFFF;
+    border: none;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    flex-shrink: 0;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+
+.header-text h1 {
+    font-family: 'Playfair Display', serif;
+    color: #8C1D40;
+    font-size: 2rem;
+    line-height: 1.2;
+    margin-bottom: 6px;
+}
+
+.header-text p {
+    color: #666666;
+    font-size: 0.95rem;
+}
+
+.content-body {
+    padding: 0 40px 40px 40px;
+}
+
+/* Cards & Banners */
+.card {
+    background-color: #FFFFFF;
+    padding: 22px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.card h3 {
+    color: #8C1D40;
+    font-size: 1.05rem;
+    margin-bottom: 8px;
+}
+
+.card p {
+    color: #666666;
+    font-size: 0.88rem;
+    line-height: 1.5;
+    margin-bottom: 12px;
+}
+
+.promo-banner {
+    background: #FFFFFF;
+    padding: 25px;
+    border-radius: 12px;
+    margin-bottom: 25px;
+    border-left: 5px solid #8C1D40;
+}
+
+.promo-banner h2 {
+    color: #8C1D40;
+    margin-bottom: 6px;
+    font-family: 'Playfair Display', serif;
+}
+
+/* Table Styling for Products & Orders */
+.orders-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    background: #FFFFFF;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.orders-table th, .orders-table td {
+    padding: 14px 18px;
+    border-bottom: 1px solid #EEEEEE;
+    font-size: 0.88rem;
+}
+
+.orders-table th {
+    color: #8C1D40;
+    font-weight: 700;
+    background: #FFFFFF;
+}
+
+/* Status Badges */
+.status-badge {
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.status-badge.delivered { background-color: #E8F5E9; color: #2E7D32; }
+.status-badge.processing { background-color: #FFF3E0; color: #E65100; }
+
+/* Buttons */
+.btn-action {
+    background-color: #8C1D40;
+    color: #FFFFFF;
+    border: none;
+    padding: 8px 18px;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.btn-action:hover {
+    background-color: #6d1632;
+}
+
+.btn-danger {
+    background-color: #E53935;
+    color: #FFFFFF;
+    border: none;
+    padding: 8px 18px;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 0.85rem;
+    cursor: pointer;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #8C1D40;
+    margin-bottom: 6px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px 14px;
+    border: 1px solid #E2E8F0;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-family: 'Poppins', sans-serif;
+    outline: none;
+}
+
+.form-group input:focus {
+    border-color: #F29EBD;
+}

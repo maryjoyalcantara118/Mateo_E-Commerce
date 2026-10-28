@@ -1,123 +1,62 @@
-document.addEventListener("DOMContentLoaded", () => {
-  let isSignUpMode = false;
+// Toggle password visibility (Show / Hide)
+const togglePassword = document.getElementById('togglePassword');
+const passwordInput = document.getElementById('password');
 
-  const authForm = document.getElementById("authForm");
-  const formTitle = document.getElementById("formTitle");
-  const avatarIcon = document.getElementById("avatarIcon");
-  const emailInput = document.getElementById("email");
-  const passwordInput = document.getElementById("password");
-  const confirmPasswordInput = document.getElementById("confirmPassword");
-  const confirmPasswordGroup = document.getElementById("confirmPasswordGroup");
-  const loginActions = document.getElementById("loginActions");
-  const submitBtn = document.getElementById("submitBtn");
-  const switchAuthMode = document.getElementById("switchAuthMode");
-  const toggleText = document.getElementById("toggleText");
-  const alertBox = document.getElementById("alert");
-  const toggleButtons = document.querySelectorAll(".toggle-btn");
-  const forgotPasswordLink = document.getElementById("forgotPassword");
-
-  switchAuthMode.addEventListener("click", (e) => {
-    e.preventDefault();
-    isSignUpMode = !isSignUpMode;
-    alertBox.className = "alert hidden";
-    authForm.reset();
-
-    if (isSignUpMode) {
-      formTitle.textContent = "USER SIGN UP";
-      avatarIcon.className = "fa-solid fa-user-plus";
-      confirmPasswordGroup.classList.remove("hidden");
-      loginActions.classList.add("hidden");
-      submitBtn.textContent = "SIGN UP";
-      toggleText.textContent = "Already have an account?";
-      switchAuthMode.textContent = "Log In";
-      emailInput.placeholder = "Enter your chosen username";
-      passwordInput.placeholder = "Choose a strong password";
-    } else {
-      formTitle.textContent = "USER LOGIN";
-      avatarIcon.className = "fa-solid fa-user";
-      confirmPasswordGroup.classList.add("hidden");
-      loginActions.classList.remove("hidden");
-      submitBtn.textContent = "LOGIN";
-      toggleText.textContent = "Don't have an account?";
-      switchAuthMode.textContent = "Sign Up";
-      emailInput.placeholder = "Enter username or email";
-      passwordInput.placeholder = "Enter password";
-    }
-  });
-
-  toggleButtons.forEach((btn) => {
-    btn.addEventListener("click", () => {
-      const targetId = btn.getAttribute("data-target");
-      const targetInput = document.getElementById(targetId);
-      const isPassword = targetInput.getAttribute("type") === "password";
-
-      targetInput.setAttribute("type", isPassword ? "text" : "password");
-      btn.textContent = isPassword ? "Hide" : "Show";
+if (togglePassword && passwordInput) {
+    togglePassword.addEventListener('click', function () {
+        const isPassword = passwordInput.getAttribute('type') === 'password';
+        passwordInput.setAttribute('type', isPassword ? 'text' : 'password');
+        this.textContent = isPassword ? 'Hide' : 'Show';
     });
-  });
+}
 
-  forgotPasswordLink.addEventListener("click", (e) => {
-    e.preventDefault();
-    const emailValue = emailInput.value.trim();
+// Form submission & Role-based authentication logic
+const loginForm = document.getElementById('loginForm');
+if (loginForm) {
+    loginForm.addEventListener('submit', function (e) {
+        e.preventDefault();
 
-    if (!emailValue) {
-      showAlert("Please enter your username or email first.", "error");
-      emailInput.focus();
-      return;
+        const email = document.getElementById('email').value.trim();
+        const password = document.getElementById('password').value.trim();
+        const errorBanner = document.getElementById('errorMessage');
+
+        // Reset error state
+        if (errorBanner) {
+            errorBanner.style.display = 'none';
+            errorBanner.textContent = '';
+        }
+
+        // Validation 1: Check required fields
+        if (!email || !password) {
+            showError("Please fill in all fields.");
+            return;
+        }
+
+        // Validation 2: Minimum password length check
+        if (password.length < 6) {
+            showError("Password must be at least 6 characters.");
+            return;
+        }
+
+        // Check for specific Seller credentials
+        if (email === 'Seller@gmail.com' && password === 'Seller12345') {
+            localStorage.setItem('currentUser', JSON.stringify({ email: email, role: 'seller' }));
+            alert('Login successful! Redirecting to Seller Portal...');
+            window.location.href = 'seller.html';
+
+        } else {
+            // Flexible Customer Login: Accept ANY other email and password!
+            localStorage.setItem('currentUser', JSON.stringify({ email: email, role: 'customer' }));
+            alert('Login successful! Redirecting to Customer Dashboard...');
+            window.location.href = 'side-menu.html';
+        }
+    });
+}
+
+function showError(message) {
+    const errorBanner = document.getElementById('errorMessage');
+    if (errorBanner) {
+        errorBanner.textContent = message;
+        errorBanner.style.display = 'block';
     }
-
-    const recoveredPassword = localStorage.getItem("savedPassword") || "Password123!";
-    showAlert(`Your password is: ${recoveredPassword}`, "success");
-  });
-
-  authForm.addEventListener("submit", (e) => {
-    e.preventDefault();
-
-    const emailValue = emailInput.value.trim();
-    const passwordValue = passwordInput.value;
-    const confirmPasswordValue = confirmPasswordInput.value;
-
-    alertBox.className = "alert hidden";
-
-    if (!emailValue) {
-      showAlert("Please enter your username or email.", "error");
-      emailInput.focus();
-      return;
-    }
-
-    if (!passwordValue) {
-      showAlert("Please enter a password.", "error");
-      passwordInput.focus();
-      return;
-    }
-
-    if (passwordValue.length < 6) {
-      showAlert("Password must be at least 6 characters.", "error");
-      passwordInput.focus();
-      return;
-    }
-
-    if (isSignUpMode) {
-      if (passwordValue !== confirmPasswordValue) {
-        showAlert("Passwords do not match.", "error");
-        confirmPasswordInput.focus();
-        return;
-      }
-
-      showAlert("Account created successfully! Switching to Login...", "success");
-      localStorage.setItem("savedPassword", passwordValue);
-
-      setTimeout(() => {
-        switchAuthMode.click();
-      }, 1500);
-
-    } else {
-      showAlert("Login successful!", "success");
-    }
-  });
-
-  function showAlert(message, type) {
-    alertBox.textContent = message;
-    alertBox.className = `alert ${type}`;
-  }
-});
+}

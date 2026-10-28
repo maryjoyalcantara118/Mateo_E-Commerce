@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Joy Glow's Cosmetics - Seller Portal</title>
+    <!-- Font Imports matching side-menu.css -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="seller.css">
+</head>
+<body>
+
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <div class="brand-title">JOY GLOW'S<br>COSMETICS</div>
+            <div class="brand-line"></div>
+        </div>
+
+        <div class="menu-container">
+            <div class="menu-group">
+                <span class="group-title">Main Navigation</span>
+                <ul>
+                    <li><a href="#" class="menu-item active">Dashboard Overview</a></li>
+                    <li><a href="#" class="menu-item">Manage Products</a></li>
+                    <li><a href="#" class="menu-item">Add Product</a></li>
+                </ul>
+            </div>
+
+            <div class="menu-group">
+                <span class="group-title">Operations</span>
+                <ul>
+                    <li><a href="#" class="menu-item">Customer Orders</a></li>
+                </ul>
+            </div>
+
+            <div class="menu-group">
+                <span class="group-title">Account</span>
+                <ul>
+                    <li><a href="#" class="menu-item">Seller Profile</a></li>
+                </ul>
+            </div>
+
+            <div class="menu-group">
+                <span class="group-title">System</span>
+                <ul>
+                    <li><a href="#" id="sellerLogoutBtn" class="menu-item">Logout</a></li>
+                </ul>
+            </div>
+        </div>
+    </aside>
+
+    <main class="main-content">
+        <header class="top-header">
+            <button class="toggle-btn">☰</button>
+            <div class="header-text">
+                <h1 id="sellerContentTitle">Joy Glow's Cosmetics</h1>
+                <p id="sellerContentSub">Welcome to your seller dashboard. Manage store inventory and client orders.</p>
+            </div>
+        </header>
+
+        <div class="content-body">
+            <section id="sellerPageContent">
+            </section>
+        </div>
+    </main>
+
+    <script src="seller.js"></script>
+</body>
+</html>
